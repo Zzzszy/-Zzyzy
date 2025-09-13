@@ -1,0 +1,481 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙破九天 - 官方网站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C8102E',      // 热血红
+                        secondary: '#FFD700',    // 金色
+                        dark: '#0A0502',         // 深色背景
+                        darklight: '#140F09',    // 稍亮的深色背景
+                        gold: '#D4AF37',         // 金色
+                        stone: '#8B7D6B',        // 石色
+                    },
+                    fontFamily: {
+                        fantasy: ['"Ma Shan Zheng"', '"Noto Serif SC"', 'serif'],
+                        sans: ['"ZCOOL XiaoWei"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            }
+            .text-shadow-gold {
+                text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 15px #FFD700;
+            }
+            .bg-pattern {
+                background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            .animate-pulse-slow {
+                animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            }
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-20px); }
+                100% { transform: translateY(0px); }
+            }
+            .职业卡片:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            }
+            .download-btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 15px -3px rgba(200, 16, 46, 0.4);
+            }
+            .bg-scroll {
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&amp;family=ZCOOL+XiaoWei&amp;display=swap" rel="stylesheet">
+</head>
+<body class="bg-dark bg-pattern text-gray-200 font-sans">
+    <!-- 导航栏 -->
+    <header class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl md:text-3xl font-fantasy text-secondary text-shadow-gold">
+                    龙破九天
+                </h1>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-secondary transition-colors">首页</a>
+                <a href="#classes" class="hover:text-secondary transition-colors">职业</a>
+                <a href="#features" class="hover:text-secondary transition-colors">特色</a>
+                <a href="#screenshots" class="hover:text-secondary transition-colors">截图</a>
+                <a href="#download" class="hover:text-secondary transition-colors">下载</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-darklight py-4 px-6 absolute w-full">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="hover:text-secondary transition-colors">首页</a>
+                <a href="#classes" class="hover:text-secondary transition-colors">职业</a>
+                <a href="#features" class="hover:text-secondary transition-colors">特色</a>
+                <a href="#screenshots" class="hover:text-secondary transition-colors">截图</a>
+                <a href="#download" class="hover:text-secondary transition-colors">下载</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区 -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="77053993_336530493198444b918c907c5a2e5681背景1.jpeg" alt="龙破九天游戏背景" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-b from-dark/50 to-dark"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-fantasy text-secondary mb-6 text-shadow-gold animate-pulse-slow">龙破九天</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto text-gray-200">
+                经典三职业，热血重燃！自动拾取，自动挂机，轻松畅享极致游戏体验
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#download" class="download-btn bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-md transition-all duration-300 flex items-center justify-center">
+                    <i class="fa fa-download mr-2"></i> 立即下载
+                </a>
+                <a href="#classes" class="download-btn bg-transparent border-2 border-secondary text-secondary hover:bg-secondary/10 font-bold py-3 px-8 rounded-md transition-all duration-300 flex items-center justify-center">
+                    <i class="fa fa-users mr-2"></i> 了解职业
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#classes" class="text-white/70 hover:text-white">
+                <i class="fa fa-angle-down text-3xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 职业介绍 -->
+    <section id="classes" class="py-20 bg-darklight">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-fantasy text-secondary mb-4">三大职业</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">选择你的传奇之路，战士、法师、道士，各有千秋，共同谱写龙破九天的传奇</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 战士 -->
+                <div class="职业卡片 bg-dark rounded-lg overflow-hidden shadow-lg transition-all duration-500 border border-stone/30">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="wechat_2025-09-13_135518_944战士.png" alt="战士职业形象" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-bold">
+                            近战王者
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-fantasy text-secondary mb-3">战士</h3>
+                        <p class="text-gray-300 mb-4">
+                            以强大的体格为基础，拥有惊人的爆发力和防御力。擅长近身格斗，高血量高攻击，是团队中的坚实盾牌和冲锋先锋。
+                        </p>
+                        <ul class="space-y-2 text-gray-400">
+                            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 高生命值与防御力</li>
+                            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 强大的近战爆发力</li>
+                            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 简单易上手</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 法师 -->
+                <div class="职业卡片 bg-dark rounded-lg overflow-hidden shadow-lg transition-all duration-500 border border-stone/30">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="wechat_2025-09-13_135454_968法师.png" alt="法师职业形象" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            元素掌控
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-fantasy text-secondary mb-3">法师</h3>
+                        <p class="text-gray-300 mb-4">
+                            掌握元素之力，拥有毁天灭地的魔法攻击。虽然防御较弱，但强大的范围攻击和控制技能使其成为团队中的主要输出。
+                        </p>
+                        <ul class="space-y-2 text-gray-400">
+                            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 强大的远程魔法攻击</li>
+                            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 大范围群体伤害</li>
+                            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 多种控制技能</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 道士 -->
+                <div class="职业卡片 bg-dark rounded-lg overflow-hidden shadow-lg transition-all duration-500 border border-stone/30">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="wechat_2025-09-13_135418_761道士.png" alt="道士职业形象" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            全能辅助
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-fantasy text-secondary mb-3">道士</h3>
+                        <p class="text-gray-300 mb-4">
+                            精通通灵之术和医术，能召唤神兽协助战斗，同时拥有治疗和诅咒能力。是团队中不可或缺的全能型辅助职业。
+                        </p>
+                        <ul class="space-y-2 text-gray-400">
+                            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 召唤神兽协助战斗</li>
+                            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 强大的治疗能力</li>
+                            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 多种诅咒与辅助技能</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 游戏特色 -->
+    <section id="features" class="py-20 bg-dark">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-fantasy text-secondary mb-4">核心特色</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">龙破九天带来独特的游戏体验，让你轻松畅享传奇乐趣</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <div>
+                    <img src="wechat_2025-09-13_140004_473自动拾取.png" alt="自动拾取功能展示" class="rounded-lg shadow-xl w-full animate-float">
+                </div>
+                <div>
+                    <h3 class="text-3xl font-fantasy text-secondary mb-6 flex items-center">
+                        <i class="fa fa-magic text-primary mr-3"></i>
+                        自动拾取
+                    </h3>
+                    <p class="text-gray-300 mb-6 text-lg">
+                        告别繁琐操作，游戏内自动拾取所有掉落物品，让你专注于战斗本身，不错过任何稀有装备和道具。
+                    </p>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fa fa-star text-gold mt-1 mr-3"></i>
+                            <span>智能识别物品价值，优先拾取高品质装备</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-star text-gold mt-1 mr-3"></i>
+                            <span>可自定义拾取规则，按需筛选物品类型</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-star text-gold mt-1 mr-3"></i>
+                            <span>离线也能自动拾取，不错过任何收益</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="md:order-2">
+                    <img src="wechat_2025-09-13_135922_859自动挂机.png" alt="自动挂机功能展示" class="rounded-lg shadow-xl w-full animate-float">
+                </div>
+                <div class="md:order-1">
+                    <h3 class="text-3xl font-fantasy text-secondary mb-6 flex items-center">
+                        <i class="fa fa-robot text-primary mr-3"></i>
+                        自动挂机
+                    </h3>
+                    <p class="text-gray-300 mb-6 text-lg">
+                        解放双手，自动挂机系统让你轻松升级。无论是打怪、做任务还是刷副本，都能自动完成，轻松获取经验和奖励。
+                    </p>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fa fa-star text-gold mt-1 mr-3"></i>
+                            <span>智能路径规划，自动寻路完成任务</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-star text-gold mt-1 mr-3"></i>
+                            <span>自动释放技能，最优战斗策略</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-star text-gold mt-1 mr-3"></i>
+                            <span>多场景支持，全天候不间断升级</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 游戏截图 -->
+    <section id="screenshots" class="py-20 bg-darklight">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-fantasy text-secondary mb-4">游戏截图</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">探索龙破九天的精彩世界，感受震撼的战斗场面</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="4.webp" alt="游戏战斗场景" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="333.png" alt="游戏地图场景" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="微信图片_20250825193655_8_2.png" alt="游戏角色界面" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="微信图片_20250825201302_11_2.png" alt="游戏技能特效" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="微信图片_20250826103943_16_2.png" alt="游戏装备界面" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="微信图片_20250826104145_17_2.png">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 下载区域 -->
+    <section id="download" class="py-20 bg-dark relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="背景2.png" alt="下载背景" class="w-full h-full object-cover opacity-20">
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-fantasy text-secondary mb-4">立即下载</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">选择适合你的平台，开始龙破九天的传奇之旅</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-darklight/80 backdrop-blur-sm rounded-xl p-8 md:p-12 border border-stone/30 shadow-2xl">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- 安卓下载 -->
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fa fa-android text-4xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-fantasy text-secondary mb-4">安卓版</h3>
+                        <a href="https://fxyx99.com/mobile/Downfile/index?gid=64&amp;pid=1075" target="_blank" class="download-btn inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-md transition-all duration-300">
+                            <i class="fa fa-download mr-2"></i> 立即下载
+                        </a>
+                    </div>
+                    
+                    <!-- iOS下载 -->
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fa fa-apple text-4xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-fantasy text-secondary mb-4">iOS版</h3>
+                        <a href="https://fxyx99.com/mobile/Downfile/index?gid=64&amp;pid=1075" target="_blank" class="download-btn inline-block bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-md transition-all duration-300">
+                            <i class="fa fa-download mr-2"></i> 立即下载
+                        </a>
+                    </div>
+                    
+                    <!-- 电脑版 -->
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fa fa-desktop text-4xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-fantasy text-secondary mb-4">电脑版</h3>
+                        <button id="pc-download-btn" class="download-btn inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md transition-all duration-300">
+                            <i class="fa fa-download mr-2"></i> 获取链接
+                        </button>
+                        <p class="text-gray-400 text-sm mt-4">请下载模拟器，将链接复制到模拟器内置浏览器中打开</p>
+                    </div>
+                </div>
+                
+                <!-- 电脑版下载链接弹窗 -->
+                <div id="pc-link-modal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden">
+                    <div class="bg-darklight rounded-xl p-8 max-w-md w-full mx-4 border border-stone/30">
+                        <h4 class="text-2xl font-fantasy text-secondary mb-4 text-center">电脑版下载链接</h4>
+                        <div class="flex items-center mb-6">
+                            <input type="text" value="https://fxyx99.com/mobile/Downfile/index?gid=64&amp;pid=1075" id="pc-download-link" class="flex-1 bg-dark border border-stone/50 rounded-l-md py-2 px-4 text-gray-300 focus:outline-none focus:border-secondary" readonly="">
+                            <button id="copy-link-btn" class="bg-primary hover:bg-primary/90 text-white py-2 px-4 rounded-r-md transition-colors">
+                                <i class="fa fa-copy"></i> 复制
+                            </button>
+                        </div>
+                        <p class="text-gray-400 mb-6 text-sm">
+                            请先下载安卓模拟器（如BlueStacks、夜神模拟器等），安装完成后打开模拟器，在模拟器内置浏览器中粘贴上述链接进行下载。
+                        </p>
+                        <button id="close-modal-btn" class="w-full bg-secondary hover:bg-secondary/90 text-dark font-bold py-3 rounded-md transition-colors">
+                            我知道了
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-darklight py-12 border-t border-stone/30">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-3xl font-fantasy text-secondary text-shadow-gold">龙破九天</h2>
+                    <p class="text-gray-500 mt-2">热血传奇，再续经典</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors text-xl">
+                        <i class="fa fa-weixin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors text-xl">
+                        <i class="fa fa-weibo"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors text-xl">
+                        <i class="fa fa-qq"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors text-xl">
+                        <i class="fa fa-youtube-play"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-stone/30 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2023 龙破九天 版权所有 | 本游戏适合16岁以上玩家</p>
+                <p class="mt-2">注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-dark/90', 'backdrop-blur-md', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-dark/90', 'backdrop-blur-md', 'shadow-lg');
+            }
+        });
+
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动端菜单（如果打开）
+                document.getElementById('mobile-menu').classList.add('hidden');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 电脑版下载链接弹窗
+        const pcDownloadBtn = document.getElementById('pc-download-btn');
+        const pcLinkModal = document.getElementById('pc-link-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const copyLinkBtn = document.getElementById('copy-link-btn');
+        const pcDownloadLink = document.getElementById('pc-download-link');
+
+        pcDownloadBtn.addEventListener('click', function() {
+            pcLinkModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // 防止背景滚动
+        });
+
+        closeModalBtn.addEventListener('click', function() {
+            pcLinkModal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // 恢复背景滚动
+        });
+
+        // 点击模态框外部关闭
+        pcLinkModal.addEventListener('click', function(e) {
+            if (e.target === pcLinkModal) {
+                pcLinkModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // 复制链接功能
+        copyLinkBtn.addEventListener('click', function() {
+            pcDownloadLink.select();
+            document.execCommand('copy');
+            
+            // 显示复制成功提示
+            const originalText = copyLinkBtn.innerHTML;
+            copyLinkBtn.innerHTML = '<i class="fa fa-check"></i> 已复制';
+            copyLinkBtn.classList.add('bg-green-600');
+            
+            setTimeout(() => {
+                copyLinkBtn.innerHTML = originalText;
+                copyLinkBtn.classList.remove('bg-green-600');
+            }, 2000);
+        });
+    </script>
+
+</body></html>
